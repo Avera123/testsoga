@@ -1,0 +1,5 @@
+fscrud:
+    resource: "@fscrudBundle/Controller/"
+    type:     annotation
+    prefix:   /
+

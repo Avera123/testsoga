@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>factura list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Codefac</th>
+                <th>Idtercero</th>
+                <th>Fechafac</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('factura_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.codefac }}</td>
+                <td>{{ entity.idtercero }}</td>
+                <td>{% if entity.fechafac %}{{ entity.fechafac|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('factura_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('factura_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('factura_new') }}">
+                NUEVA FACTURA
+            </a>
+        </li>
+        <li>
+        <a href="{{ path('tercero') }}">
+            NUEVO TERCERO
+        </a>
+        </li>
+        <li>
+            <a href="{{ path('itemsfactura') }}">
+                NUEVO ITEM
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

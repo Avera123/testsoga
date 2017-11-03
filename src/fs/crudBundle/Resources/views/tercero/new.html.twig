@@ -1,0 +1,25 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>tercero creation</h1>
+
+    <form action="{{ path('tercero_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button type="submit">Create</button>
+        </p>
+    </form>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('tercero') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('factura_new') }}">
+            NUEVA FACTURA
+        </a>
+    </li>
+</ul>
+{% endblock %}
